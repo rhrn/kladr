@@ -8,7 +8,7 @@
   $limit = 9999999999999;
 
   $mysqli = new MySQLi($host, $user, $pass, $base);
-  #$mysqli->query("SET NAMES 'utf8'");
+  $mysqli->query("SET NAMES 'utf8'");
 
   $sql = 'SELECT * FROM `kladr` ORDER BY `kladr`.`code` ASC LIMIT ' . $limit . ' OFFSET 1';
   $kladrs = $mysqli->query($sql, MYSQLI_USE_RESULT);
@@ -39,6 +39,7 @@
     $code_end = $street->code . '00';
 
     $update = 'UPDATE `doma` SET `street_id` = ' . $id .' WHERE `code` >= "'.$code_start.'" AND `code` < "'.$code_end.'";';
+
     echo $update . PHP_EOL;
 
     $id = $street->id;
@@ -48,25 +49,3 @@
   $streets->close();
 
   $mysqli->close();
-
-  /*
-
-  try {
-    $pdo = new PDO('mysql:host' . $host . ';dbname=' . $base, $user, $pass);
-  } catch (PDOException $e) {
-    echo $e->getMessage();
-    exit(0);
-  }
-
-  //$sql = 'SHOW TABLES';
-  $sql = 'SELECT * FROM `kladr` LIMIT 30';
-
-  $stt = $pdo->prepare($sql);
-
-  $e = $stt->execute(); var_dump($e);
-
-  while($row = $stt->fetchObject()) {
-    var_dump($row);
-  }
-
-  */

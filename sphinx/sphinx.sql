@@ -3,7 +3,7 @@ SELECT
   -- *
   doma.id AS id
   , doma.index AS doma_index
-  , GROUP_CONCAT(doma.name SEPARATOR ' ') AS `doma_name`
+  , GROUP_CONCAT(doma.doma SEPARATOR ' ') AS `doma_name`
   -- , CONCAT_WS(' ', street.socr, street.name) AS street_name
   , street.name AS street_name
   , street.socr AS street_socr

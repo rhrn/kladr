@@ -17,6 +17,10 @@ php relation.php > relation.sql
 
 import relation.sql
 
+php doma.php > doma.sql
+
+import doma.sql
+
 import sphinx_view.sql
 
 cp sphinx.conf /to/sphinxsearch/

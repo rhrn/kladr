@@ -28,4 +28,5 @@ ALTER TABLE  `street` ADD  `id` INT( 7 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMAR
 ALTER TABLE  `doma` ADD  `id` INT( 8 ) UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY FIRST;
 
 ALTER TABLE  `street` ADD  `kladr_id` INT( 6 ) UNSIGNED NULL AFTER  `id` , ADD INDEX (  `kladr_id` );
-ALTER TABLE  `doma` ADD  `street_id` INT( 7 ) UNSIGNED NULL AFTER  `id` , ADD INDEX (  `street_id` );
+ALTER TABLE  `doma` ADD  `street_id` INT( 7 ) UNSIGNED NULL AFTER  `id`;
+ALTER TABLE  `doma` ADD  `doma` TEXT NOT NULL DEFAULT  '' AFTER  `name`;
