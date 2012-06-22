@@ -1,6 +1,11 @@
 kladr
 =====
 
+links
+  pindx http://info.russianpost.ru/database/ops.html
+  kladr http://www.gnivc.ru/inf_provision/classifiers_reference/kladr/
+  
+
 wget pindx
 wget kladr
 

@@ -1,17 +1,13 @@
 <?php
 
-  $host = 'localhost';
-  $base = 'kladr';
-  $user = 'kladr';
-  $pass = 'kladr';
+  $db = include("db.php");
+
+  $db->query("SET NAMES 'utf8'");
 
   $limit = 9999999999999;
 
-  $mysqli = new MySQLi($host, $user, $pass, $base);
-  $mysqli->query("SET NAMES 'utf8'");
-
   $sql = 'SELECT * FROM `kladr` ORDER BY `kladr`.`code` ASC LIMIT ' . $limit . ' OFFSET 1';
-  $kladrs = $mysqli->query($sql, MYSQLI_USE_RESULT);
+  $kladrs = $db->query($sql, MYSQLI_USE_RESULT);
 
   $id = 1; 
   $code_start = '01000000000000000';
@@ -30,7 +26,7 @@
   $kladrs->close();
 
   $sql = 'SELECT * FROM `street` ORDER BY `street`.`code` ASC LIMIT ' . $limit . ' OFFSET 1';
-  $streets = $mysqli->query($sql, MYSQLI_USE_RESULT);
+  $streets = $db->query($sql, MYSQLI_USE_RESULT);
 
   $id = 1;
   $code_start = '0100000100000010000';
@@ -48,4 +44,4 @@
 
   $streets->close();
 
-  $mysqli->close();
+  $db->close();

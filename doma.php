@@ -1,21 +1,19 @@
 <?php
 
-  $host = 'localhost';
-  $base = 'kladr';
-  $user = 'kladr';
-  $pass = 'kladr';
+  $db = include("db.php");
 
-  $mysqli = new MySQLi($host, $user, $pass, $base);
-  $mysqli->query("SET NAMES 'utf8'");
+  $db->query("SET NAMES 'utf8'");
 
   $sql = "SELECT * FROM `doma`";
 
-  $doma = $mysqli->query($sql, MYSQLI_USE_RESULT);
+  $doma = $db->query($sql, MYSQLI_USE_RESULT);
 
   $replace = array(
     ',' => ' ',
-    '_' => '',
-    'литер' => ''
+    '_' => ' ',
+    'литер' => ' ',
+    'БЛОК' => ' ',
+    'ЗОНА' => ' '
   );
 
   function doma_verbose($pattern, $name, $increment) {
@@ -62,5 +60,5 @@
   }
 
   $doma->close();
-  $mysqli->close();
+  $db->close();
 
